@@ -1,0 +1,79 @@
+# =====================================================================
+#  Kit definitions. Each kit lists armor, hotbar contents, effects, and
+#  whether the player gets natural health regen.
+#
+#  Item format (one per inventory slot 0-8 for `items`):
+#    MATERIAL[:amount][ ench:ENCHANT/level,...][ name:"Display Name"]
+#  Armor uses explicit keys. Materials are Bukkit Material enum names.
+# =====================================================================
+
+kits:
+  NoDebuff:
+    icon: POTION
+    description: "Classic potion PvP. No debuffs allowed."
+    natural-regen: true
+    armor:
+      helmet: DIAMOND_HELMET ench:PROTECTION_ENVIRONMENTAL/2
+      chestplate: DIAMOND_CHESTPLATE ench:PROTECTION_ENVIRONMENTAL/2
+      leggings: DIAMOND_LEGGINGS ench:PROTECTION_ENVIRONMENTAL/2
+      boots: DIAMOND_BOOTS ench:PROTECTION_ENVIRONMENTAL/2
+    items:
+      - DIAMOND_SWORD ench:DAMAGE_ALL/1
+      - SPLASH_POTION:1 potion:STRONG_HEALING       # custom-handled (see KitManager)
+      - ENCHANTED_GOLDEN_APPLE:8
+    fill:
+      slot: 9          # remaining slots: not used; potions auto-refill handled by plugins normally
+      material: SPLASH_POTION
+      amount: 35
+      potion: STRONG_HEALING
+
+  Diamond:
+    icon: DIAMOND_CHESTPLATE
+    description: "Full diamond, enchanted gear, gapples."
+    natural-regen: true
+    armor:
+      helmet: DIAMOND_HELMET ench:PROTECTION_ENVIRONMENTAL/3
+      chestplate: DIAMOND_CHESTPLATE ench:PROTECTION_ENVIRONMENTAL/3
+      leggings: DIAMOND_LEGGINGS ench:PROTECTION_ENVIRONMENTAL/3
+      boots: DIAMOND_BOOTS ench:PROTECTION_ENVIRONMENTAL/3,DURABILITY/3
+    items:
+      - DIAMOND_SWORD ench:DAMAGE_ALL/3,DURABILITY/3
+      - GOLDEN_APPLE:16
+      - COOKED_BEEF:32
+
+  Axe:
+    icon: DIAMOND_AXE
+    description: "Axe + shield bridge fight."
+    natural-regen: true
+    armor:
+      helmet: DIAMOND_HELMET ench:PROTECTION_ENVIRONMENTAL/2
+      chestplate: DIAMOND_CHESTPLATE ench:PROTECTION_ENVIRONMENTAL/2
+      leggings: DIAMOND_LEGGINGS ench:PROTECTION_ENVIRONMENTAL/2
+      boots: DIAMOND_BOOTS ench:PROTECTION_ENVIRONMENTAL/2
+    offhand: SHIELD
+    items:
+      - DIAMOND_AXE ench:DAMAGE_ALL/1
+      - GOLDEN_APPLE:8
+      - COOKED_BEEF:16
+
+  Archer:
+    icon: BOW
+    description: "Bow duel with light armor."
+    natural-regen: true
+    armor:
+      helmet: LEATHER_HELMET
+      chestplate: LEATHER_CHESTPLATE
+      leggings: LEATHER_LEGGINGS
+      boots: LEATHER_BOOTS
+    items:
+      - BOW ench:ARROW_DAMAGE/2,ARROW_INFINITE/1
+      - STONE_SWORD
+      - ARROW:1
+      - GOLDEN_APPLE:4
+
+  Custom:
+    icon: NETHER_STAR
+    description: "Players use whatever they bring. (Sandbox kit.)"
+    natural-regen: true
+    # No armor / items => players keep their own inventory snapshot.
+    use-player-inventory: true

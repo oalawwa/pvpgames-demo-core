@@ -1,0 +1,61 @@
+name: PvPGamesDemoCore
+version: '${version}'
+main: gg.pvpgames.demo.PvPGamesDemoCore
+api-version: '1.21'
+author: omar
+description: A polished 1v1 Duels demo proving a reusable competitive PvP match framework.
+website: https://pvpgames.gg
+
+# These plugins enhance the demo but are NOT required to start.
+softdepend:
+  - PlaceholderAPI
+  - LuckPerms
+  - TAB
+  - DecentHolograms
+  - Citizens
+  - DeluxeMenus
+  - CombatLogX
+
+commands:
+  pvp:
+    description: Admin/root command for PvPGames Demo Core.
+    usage: /pvp <reload|forcestart|resetstats|debug>
+    permission: pvpgames.admin
+  arena:
+    description: Arena management.
+    usage: /arena <create|setspawn1|setspawn2|enable|disable|list|delete>
+    permission: pvpgames.admin
+  duel:
+    description: Open the duel queue menu / queue for a mode.
+    usage: /duel [kit] [ranked|unranked]
+    aliases: [queue, q, play]
+    permission: pvpgames.play
+  stats:
+    description: View your or another player's stats.
+    usage: /stats [player]
+    permission: pvpgames.play
+  leaderboard:
+    description: View the server leaderboards.
+    usage: /leaderboard [elo|wins|kills]
+    aliases: [lb, top]
+    permission: pvpgames.play
+  leave:
+    description: Leave your current queue or match.
+    usage: /leave
+    aliases: [hub, lobby, spawn]
+    permission: pvpgames.play
+  spectate:
+    description: Spectate an ongoing match.
+    usage: /spectate <player>
+    aliases: [spec]
+    permission: pvpgames.play
+
+permissions:
+  pvpgames.play:
+    description: Allows using player-facing commands.
+    default: true
+  pvpgames.admin:
+    description: Full administrative access to PvPGames Demo Core.
+    default: op
+    children:
+      pvpgames.play: true

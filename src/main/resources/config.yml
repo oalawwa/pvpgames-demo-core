@@ -1,0 +1,107 @@
+# =====================================================================
+#  PvPGames Demo Core — main configuration
+#  Clean esports theme: dark gray, black, white, blue, cyan accents.
+# =====================================================================
+
+# Bump if you ever need to migrate config formats. Do not edit by hand.
+config-version: 1
+
+# ---------------------------------------------------------------------
+#  Storage
+#  type: MYSQL  -> try MySQL first, fall back to SQLite if unreachable.
+#        SQLITE -> use the local file only (great for quick testing).
+# ---------------------------------------------------------------------
+storage:
+  type: MYSQL
+  fallback-to-sqlite: true        # if MYSQL fails to connect, use SQLite instead
+  sqlite-file: data.db            # stored in the plugin data folder
+  mysql:
+    host: 127.0.0.1
+    port: 3306
+    database: pvpgames_demo
+    username: root
+    password: ""
+    # HikariCP pool tuning
+    pool-size: 10
+    connection-timeout-ms: 5000
+    use-ssl: false
+    table-prefix: "pvp_"
+
+# ---------------------------------------------------------------------
+#  Lobby / hub
+# ---------------------------------------------------------------------
+lobby:
+  # Where players are sent on join, on /leave, and after a match.
+  # Set via in-game once, or edit here. world,x,y,z,yaw,pitch
+  spawn: "world,0.5,100.0,0.5,0.0,0.0"
+  # Force players into ADVENTURE in the lobby and clear their inventory.
+  enforce-lobby-state: true
+  # Give the lobby hotbar items (queue compass, kit selector, etc.)
+  give-lobby-items: true
+
+# ---------------------------------------------------------------------
+#  Matches
+# ---------------------------------------------------------------------
+match:
+  countdown-seconds: 5
+  # Grace period at match start where PvP damage is disabled (ms).
+  start-grace-ms: 0
+  # Seconds the results screen is shown before requeue/return options.
+  results-screen-seconds: 5
+  # Max match length in seconds before it's declared a draw (0 = no limit).
+  time-limit-seconds: 300
+  # Heal/feed both players at the start of each round.
+  reset-player-on-start: true
+  # When a player logs out mid-match, they forfeit after this many seconds.
+  forfeit-on-disconnect-seconds: 0
+
+# ---------------------------------------------------------------------
+#  Queue
+# ---------------------------------------------------------------------
+queue:
+  # Ranked matchmaking only pairs players within this ELO band.
+  # Band grows by `elo-range-growth-per-second` the longer you wait.
+  ranked-initial-elo-range: 100
+  ranked-elo-range-growth-per-second: 25
+  ranked-max-elo-range: 1000
+
+# ---------------------------------------------------------------------
+#  ELO (ranked only)
+# ---------------------------------------------------------------------
+elo:
+  starting: 1000
+  k-factor: 32        # higher = more volatile rating changes
+  minimum: 0          # ELO never drops below this
+
+# ---------------------------------------------------------------------
+#  Scoreboard (sidebar)
+# ---------------------------------------------------------------------
+scoreboard:
+  enabled: true
+  title: "&b&lPVPGAMES &7| &fDEMO"
+  # Per-state lines are defined in messages.yml under scoreboard.*
+
+# ---------------------------------------------------------------------
+#  Holographic leaderboards (requires DecentHolograms)
+# ---------------------------------------------------------------------
+holograms:
+  enabled: true
+  # How often (seconds) to refresh hologram + scoreboard leaderboard data.
+  refresh-seconds: 60
+  top-size: 10
+
+# ---------------------------------------------------------------------
+#  Sounds (Bukkit Sound enum names). Set to "" to disable a sound.
+# ---------------------------------------------------------------------
+sounds:
+  countdown-tick: "BLOCK_NOTE_BLOCK_HAT"
+  match-start: "ENTITY_ENDER_DRAGON_GROWL"
+  win: "UI_TOAST_CHALLENGE_COMPLETE"
+  lose: "ENTITY_VILLAGER_NO"
+  menu-click: "UI_BUTTON_CLICK"
+  queue-join: "ENTITY_EXPERIENCE_ORB_PICKUP"
+
+# ---------------------------------------------------------------------
+#  Debug
+# ---------------------------------------------------------------------
+debug: false

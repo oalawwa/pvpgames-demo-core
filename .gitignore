@@ -1,0 +1,30 @@
+# ---- Gradle ----
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# ---- IntelliJ IDEA ----
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# ---- Eclipse / VS Code (in case a teammate uses them) ----
+.classpath
+.project
+.settings/
+.vscode/
+bin/
+
+# ---- OS noise ----
+.DS_Store
+Thumbs.db
+
+# ---- Runtime / secrets ----
+# Never commit a real database password. Use config.yml on the server only.
+run/
+*.log
+local-data/
+*.db
+*.db-journal

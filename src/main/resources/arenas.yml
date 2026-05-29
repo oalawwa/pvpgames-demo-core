@@ -1,0 +1,17 @@
+# =====================================================================
+#  Arena storage. Managed in-game via /arena commands — you normally
+#  do NOT edit this by hand, but it's human-readable so you can.
+#
+#  Each arena:
+#    enabled:  whether matchmaking may use it
+#    spawn1/2: "world,x,y,z,yaw,pitch"
+#    kits:     optional whitelist of kits this arena supports (empty = all)
+# =====================================================================
+
+arenas: {}
+# Example (created automatically once you run the /arena commands):
+#   classic1:
+#     enabled: true
+#     spawn1: "world,10.5,64.0,10.5,90.0,0.0"
+#     spawn2: "world,-10.5,64.0,10.5,-90.0,0.0"
+#     kits: []

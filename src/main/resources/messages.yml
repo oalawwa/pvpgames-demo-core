@@ -1,0 +1,139 @@
+# =====================================================================
+#  All player-facing text. Supports legacy '&' codes AND MiniMessage.
+#  MiniMessage examples: <gradient:#00e5ff:#0091ff>text</gradient>, <bold>, <gray>
+#  Theme palette: black, dark_gray, gray, white, blue, aqua(cyan).
+#  Placeholders available in many lines: %player%, %kit%, %mode%,
+#  %opponent%, %winner%, %loser%, %elo%, %elo_change%, %duration%,
+#  %wins%, %losses%, %kills%, %deaths%, %kdr%, %streak%, %rank%, %value%.
+# =====================================================================
+
+# Prefix prrepended to most chat messages.
+prefix: "<gradient:#00e5ff:#0091ff><bold>PvPGames</bold></gradient> <dark_gray>»</dark_gray> "
+
+general:
+  no-permission: "<red>You don't have permission to do that."
+  player-only: "<red>This command can only be used by players."
+  player-not-found: "<red>Player <white>%player%</white> was not found."
+  reloaded: "<aqua>Configuration reloaded <gray>in <white>%duration%ms</white>."
+  unknown-subcommand: "<red>Unknown subcommand. <gray>Try <white>%usage%</white>."
+
+queue:
+  joined: "<aqua>You joined the <white>%mode% %kit%</white> queue. <gray>Searching for an opponent..."
+  left: "<gray>You left the queue."
+  already-queued: "<red>You're already in a queue. <gray>Use <white>/leave</white> first."
+  cannot-queue-in-match: "<red>You can't queue while in a match."
+  found-opponent: "<aqua>Opponent found: <white>%opponent%</white>!"
+  not-in-queue: "<red>You aren't in a queue."
+
+match:
+  countdown-title: "<gradient:#00e5ff:#0091ff><bold>%seconds%</bold></gradient>"
+  countdown-subtitle: "<gray>%mode% <dark_gray>•</dark_gray> <white>%kit%</white>"
+  go-title: "<aqua><bold>FIGHT!</bold>"
+  go-subtitle: "<gray>vs <white>%opponent%</white>"
+  started: "<aqua>Match started! <gray>Defeat <white>%opponent%</white> to win."
+  opponent-hit-info: "<gray>%opponent% <dark_gray>is at <red>%health%❤"
+  draw: "<gray>The match ended in a <white>draw</white>."
+  time-up: "<gray>Time's up!"
+  forfeit: "<gray>%player% <red>forfeited the match."
+  ended-actionbar: "<gray>Match over <dark_gray>•</dark_gray> returning to lobby..."
+
+results:
+  # Shown as a clean multi-line summary in chat to both players.
+  header: "<dark_gray><strikethrough>                                        </strikethrough>"
+  footer: "<dark_gray><strikethrough>                                        </strikethrough>"
+  title-win: "  <green><bold>VICTORY</bold></green>"
+  title-loss: "  <red><bold>DEFEAT</bold></red>"
+  title-draw: "  <gray><bold>DRAW</bold></gray>"
+  line-mode: "  <gray>Mode: <white>%mode% <dark_gray>•</dark_gray> %kit%"
+  line-opponent: "  <gray>Opponent: <white>%opponent%"
+  line-duration: "  <gray>Duration: <white>%duration%"
+  line-elo: "  <gray>ELO: <white>%elo% <dark_gray>(<elo_color>%elo_change%</dark_gray>)"
+  line-stats: "  <gray>Your record: <white>%wins%W <dark_gray>/</dark_gray> %losses%L <dark_gray>•</dark_gray> KDR %kdr%"
+  # Clickable requeue prompt (uses click events; see code).
+  requeue-prompt: "  <aqua>[<bold>⟳ REQUEUE</bold>]</aqua> <dark_gray>|</dark_gray> <gray>[<white>RETURN TO LOBBY</white>]"
+  requeue-hover: "<gray>Click to rejoin the <white>%mode% %kit%</white> queue"
+  lobby-hover: "<gray>Click to return to the lobby"
+
+stats:
+  header: "<dark_gray><strikethrough>            </strikethrough> <gradient:#00e5ff:#0091ff><bold>%player%</bold></gradient> <dark_gray><strikethrough>            </strikethrough>"
+  line-elo: "<gray>ELO: <aqua>%elo%"
+  line-wl: "<gray>Wins: <white>%wins%</white> <dark_gray>|</dark_gray> Losses: <white>%losses%</white> <dark_gray>|</dark_gray> Win rate: <white>%winrate%%"
+  line-kd: "<gray>Kills: <white>%kills%</white> <dark_gray>|</dark_gray> Deaths: <white>%deaths%</white> <dark_gray>|</dark_gray> KDR: <white>%kdr%"
+  line-streak: "<gray>Streak: <white>%streak%</white> <dark_gray>|</dark_gray> Best: <white>%best_streak%</white>"
+  line-games: "<gray>Games: <white>%games%</white> <dark_gray>|</dark_gray> Damage dealt: <white>%damage%"
+
+leaderboard:
+  header: "<dark_gray><strikethrough>        </strikethrough> <gradient:#00e5ff:#0091ff><bold>TOP %category%</bold></gradient> <dark_gray><strikethrough>        </strikethrough>"
+  line: "<dark_gray>#<white>%rank%</white> <gray>%player% <dark_gray>—</dark_gray> <aqua>%value%"
+  empty: "<gray>No data yet. Play some matches!"
+  hologram-title: "<gradient:#00e5ff:#0091ff><bold>TOP %category%</bold></gradient>"
+  hologram-line: "<dark_gray>#<white>%rank%</white> <gray>%player% <dark_gray>—</dark_gray> <aqua>%value%"
+
+spectator:
+  now-spectating: "<gray>Now spectating <white>%player%</white>. <dark_gray>Use <white>/leave</white> to stop."
+  cannot-spectate-self: "<red>You can't spectate yourself."
+  target-not-in-match: "<red>That player isn't in a match."
+  player-joined: "<dark_gray>[<aqua>SPEC</aqua>] <gray>%player% is now watching."
+
+arena:
+  created: "<aqua>Arena <white>%arena%</white> created. <gray>Now set spawns with <white>/arena setspawn1</white> and <white>setspawn2</white>."
+  already-exists: "<red>An arena named <white>%arena%</white> already exists."
+  deleted: "<gray>Arena <white>%arena%</white> deleted."
+  not-found: "<red>Arena <white>%arena%</white> not found."
+  spawn-set: "<aqua>Spawn <white>%n%</white> set for arena <white>%arena%</white>."
+  enabled: "<green>Arena <white>%arena%</white> enabled."
+  disabled: "<gray>Arena <white>%arena%</white> disabled."
+  enable-needs-spawns: "<red>Set both spawns before enabling <white>%arena%</white>."
+  list-header: "<gray>Arenas (<white>%count%</white>):"
+  list-line: "<dark_gray>•</dark_gray> <white>%arena%</white> <gray>— %status% <dark_gray>(spawns: %spawns%/2)"
+  status-enabled: "<green>enabled"
+  status-disabled: "<red>disabled"
+  none-available: "<red>No enabled arenas are available right now. Try again shortly."
+
+admin:
+  forcestart-usage: "<gray>Usage: <white>/pvp forcestart <player1> <player2> [kit]"
+  forcestart-done: "<aqua>Force-started a match between <white>%a%</white> and <white>%b%</white>."
+  resetstats-done: "<aqua>Reset stats for <white>%player%</white>."
+  resetstats-all-done: "<aqua>Reset stats for <white>ALL</white> players."
+  debug-toggled: "<gray>Debug mode is now <white>%state%</white>."
+
+kit:
+  selected: "<aqua>Kit set to <white>%kit%</white>."
+  not-found: "<red>Unknown kit <white>%kit%</white>."
+  menu-title: "<dark_gray>Select a Kit"
+
+# Sidebar scoreboard lines per game state. {} placeholders resolved in code.
+# Use blank "" for spacer lines.
+scoreboard:
+  lobby:
+    - "<dark_gray><strikethrough>                    </strikethrough>"
+    - "<gray>Player: <white>%player%"
+    - ""
+    - "<gray>ELO: <aqua>%elo%"
+    - "<gray>Wins: <white>%wins%"
+    - "<gray>Streak: <white>%streak%"
+    - ""
+    - "<gray>Online: <white>%online%"
+    - "<dark_gray><strikethrough>                    </strikethrough>"
+    - "<aqua>play.pvpgames.gg"
+  queue:
+    - "<dark_gray><strikethrough>                    </strikethrough>"
+    - "<gray>Searching...</gray>"
+    - ""
+    - "<gray>Mode: <white>%mode%"
+    - "<gray>Kit: <white>%kit%"
+    - "<gray>Waited: <white>%wait%s"
+    - ""
+    - "<gray>Use <white>/leave</white> to cancel"
+    - "<dark_gray><strikethrough>                    </strikethrough>"
+    - "<aqua>play.pvpgames.gg"
+  match:
+    - "<dark_gray><strikethrough>                    </strikethrough>"
+    - "<gray>Mode: <white>%mode% %kit%"
+    - ""
+    - "<gray>You: <green>%self_health%❤"
+    - "<gray>%opponent%: <red>%opp_health%❤"
+    - ""
+    - "<gray>Time: <white>%time%"
+    - "<dark_gray><strikethrough>                    </strikethrough>"
+    - "<aqua>play.pvpgames.gg"

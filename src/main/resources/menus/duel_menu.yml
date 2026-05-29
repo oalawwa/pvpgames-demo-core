@@ -1,0 +1,91 @@
+# =====================================================================
+#  OPTIONAL: DeluxeMenus configuration for the duel queue.
+#
+#  The plugin ships its own built-in queue GUI (/duel with no args), so
+#  this file is NOT required. It's here to prove the integration and to
+#  give server owners a fully customizable alternative that drives the
+#  exact same commands the built-in menu uses.
+#
+#  HOW TO USE:
+#    1. Install DeluxeMenus.
+#    2. Copy this file into /plugins/DeluxeMenus/menus/duel_menu.yml
+#    3. Add it to DeluxeMenus' config.yml 'gui_menus' list.
+#    4. Open with /dm open duel_menu  (or bind it to the lobby compass).
+#
+#  Placeholders use PlaceholderAPI; our %pvpgames_*% expansion supplies
+#  the player's live stats.
+# =====================================================================
+
+menu_title: '&8Select a Kit'
+open_command: duelmenu
+register_command: true
+size: 27
+
+items:
+
+  nodebuff:
+    material: POTION
+    slot: 10
+    display_name: '&b&lNoDebuff'
+    lore:
+      - '&7Classic potion PvP.'
+      - ''
+      - '&aLeft-Click &8» &7Ranked queue'
+      - '&eRight-Click &8» &7Unranked queue'
+    left_click_commands:
+      - '[player] duel NoDebuff ranked'
+    right_click_commands:
+      - '[player] duel NoDebuff unranked'
+
+  diamond:
+    material: DIAMOND_CHESTPLATE
+    slot: 12
+    display_name: '&b&lDiamond'
+    lore:
+      - '&7Full enchanted diamond.'
+      - ''
+      - '&aLeft-Click &8» &7Ranked queue'
+      - '&eRight-Click &8» &7Unranked queue'
+    left_click_commands:
+      - '[player] duel Diamond ranked'
+    right_click_commands:
+      - '[player] duel Diamond unranked'
+
+  axe:
+    material: DIAMOND_AXE
+    slot: 14
+    display_name: '&b&lAxe'
+    lore:
+      - '&7Axe + shield fight.'
+      - ''
+      - '&aLeft-Click &8» &7Ranked queue'
+      - '&eRight-Click &8» &7Unranked queue'
+    left_click_commands:
+      - '[player] duel Axe ranked'
+    right_click_commands:
+      - '[player] duel Axe unranked'
+
+  archer:
+    material: BOW
+    slot: 16
+    display_name: '&b&lArcher'
+    lore:
+      - '&7Bow duel, light armor.'
+      - ''
+      - '&aLeft-Click &8» &7Ranked queue'
+      - '&eRight-Click &8» &7Unranked queue'
+    left_click_commands:
+      - '[player] duel Archer ranked'
+    right_click_commands:
+      - '[player] duel Archer unranked'
+
+  stats:
+    material: PLAYER_HEAD
+    slot: 22
+    display_name: '&b&lYour Stats'
+    lore:
+      - '&7ELO: &b%pvpgames_elo%'
+      - '&7Wins: &f%pvpgames_wins% &8| &7Losses: &f%pvpgames_losses%'
+      - '&7KDR: &f%pvpgames_kdr% &8| &7Streak: &f%pvpgames_streak%'
+    left_click_commands:
+      - '[player] stats'
