@@ -7,7 +7,7 @@
 
 A polished, professional **1v1 Duels** demo for Minecraft (Paper) that proves a reusable,
 expandable competitive-PvP match framework — built as a portfolio piece for the
-[PvPGames.gg](https://pvpgames.gg) development team.
+[oalawwa/pvpgames-demo-core](https://pvpgames.gg) development team.
 
 > The goal isn't a full network. It's a small, clean demo that demonstrates the core systems a
 > full server needs: a competitive lobby, matchmaking queues, a state-driven match engine, kits,
